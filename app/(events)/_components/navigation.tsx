@@ -14,6 +14,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
+import { Logo } from "@/components/logo"
  
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -58,20 +59,25 @@ export const Navigation = () => {
 
 
   return (
-    <nav className="p-2 bg-blue-500 w-full flex justify-center">
+    <>
+    <nav className="p-2 py-4 bg-[#2A3334] w-full flex items-center justify-between px-12 border-b border-[#2AD2B1] sticky top-0 z-50">
+      <Logo />
  <NavigationMenu>
-      <NavigationMenuList>
+      <NavigationMenuList className="space-x-5">
         <NavigationMenuItem>
         <Link href="/events" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+            <NavigationMenuLink className={
+              // "text-white hover:text-gray-200 bg-blue-600 px-3 py-2 rounded-md text-sm font-medium"
+              navigationMenuTriggerStyle()
+              }>
               Eventos
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-        <Link href="/events" legacyBehavior passHref>
+        <Link href="/search" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Mis eventos
+              Buscar un evento
             </NavigationMenuLink>
           </Link>
           {/* <NavigationMenuContent>
@@ -88,15 +94,16 @@ export const Navigation = () => {
             </ul>
           </NavigationMenuContent> */}
         </NavigationMenuItem>
-        <NavigationMenuItem>
+        {/* <NavigationMenuItem>
           <Link href="/docs" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               Documentation
             </NavigationMenuLink>
           </Link>
-        </NavigationMenuItem>
+        </NavigationMenuItem> */}
       </NavigationMenuList>
     </NavigationMenu>
     </nav>
+    </>
   )
 }
